@@ -1,16 +1,30 @@
 
 <h1>
-  Weather App
+  Weather and Country App
 </h1>
 <hr>
-<input type="text" placeholder="search city" [(ngModel)]=cityName>
+<div style="position: relative">
+  <input type="text" placeholder="search city" [(ngModel)]=cityName>
 <button (click)=searchCity()>Search</button>
 
 <a routerLink='/admin'>Admin</a>
 <a routerLink='/member'>Member</a>
 
-
 <router-outlet></router-outlet>
 
-<br>
 <h3>Pressure: {{ cityPressure }}</h3>
+<h3>Humidity: {{ cityHumid }}</h3>
+<br>
+<h3>Name: {{ countryObj?.name }}</h3>
+<h3>Capital: {{ countryObj?.capital }}</h3>
+<h3>Currency: 
+  <span *ngIf="countryObj">
+  {{ countryObj?.currencies[0].code }} - {{ countryObj?.currencies[0].symbol }}
+  </span>
+  </h3>
+<input type="text" placeholder="country name" [(ngModel)]="countryName">
+<button (click)="getCountryInfo()">Get Country</button>
+<img src="{{countryObj?.flag}}" width="400" height="300" 
+style="position: absolute; right: 0; top: 0">
+
+</div>

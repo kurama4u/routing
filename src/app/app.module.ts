@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { MemberComponent } from './member/member.component';
 import { RouterModule, Routes } from '@angular/router'
+import { CountriesService } from './countries.http.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { RouterModule, Routes } from '@angular/router'
       {path: 'member', component: MemberComponent},
     ])
   ],
-  providers: [],
+  providers: [CountriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
