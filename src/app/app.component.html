@@ -1,0 +1,16 @@
+
+<h1>
+  Weather App
+</h1>
+<hr>
+<input type="text" placeholder="search city" [(ngModel)]=cityName>
+<button (click)=searchCity()>Search</button>
+
+<a routerLink='/admin'>Admin</a>
+<a routerLink='/member'>Member</a>
+
+
+<router-outlet></router-outlet>
+
+<br>
+<h3>Pressure: {{ cityPressure }}</h3>
