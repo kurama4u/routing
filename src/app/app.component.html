@@ -22,17 +22,12 @@
   {{ countryObj?.currencies[0].code }} - {{ countryObj?.currencies[0].symbol }}
   </span></span>
   </h3>
-<input ngui-auto-complete type="text" placeholder="country name" [(ngModel)]="countryName">
 <select [(ngModel)]="countryName">
+<input type="text" placeholder="country name" ngui-auto-complete [(ngModel)]="countryName">
 <option *ngFor="let country of countriesList" value="{{country.name}}">{{country.name}}</option>
 </select>
 <button (click)="getCountryInfo()">Get Country</button>
 <img src="{{countryObj?.flag}}" class="img">
 </div>
 <hr />
-<h2>POST Response Data</h2>
-<h3>Name: <span class="n">{{profObj.name}}</span></h3>
-<h3>Job: <span class="n">{{profObj.job}}</span></h3>
-<h3>City: <span class="n">{{profObj.city}}</span></h3>
-<h3>Id: <span class="n">{{profObj.id}}</span></h3>
-<button (click)="anyFunct()">Generate Response</button>
+<app-post></app-post>

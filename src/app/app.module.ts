@@ -8,8 +8,9 @@ import { AdminComponent } from './admin/admin.component';
 import { MemberComponent } from './member/member.component';
 import { RouterModule, Routes } from '@angular/router'
 import { CountriesService } from './countries.http.service';
-import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { ProfileService } from './profile.service';
+import { PostComponent } from './post.component';
 
 const forRout = [
       {path: 'admin', component: AdminComponent},
@@ -20,13 +21,14 @@ const forRout = [
   declarations: [
     AppComponent,
     AdminComponent,
-    MemberComponent
+    MemberComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2AutoCompleteModule,
+    NguiAutoCompleteModule,
     RouterModule.forRoot(forRout)
   ],
   providers: [CountriesService, ProfileService],

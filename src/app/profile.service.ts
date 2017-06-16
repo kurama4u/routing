@@ -5,6 +5,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
+interface PROFOBJ {
+    name: string;
+    job: string;
+    city: string;
+}
+
 @Injectable()
 export class ProfileService {
     constructor(private http: Http){
@@ -12,8 +18,10 @@ export class ProfileService {
     }
 
     saveProf(){
-        let url: string = 'https://reqres.in/api/users'
-        return this.http.post(url, {name: 'kurama',job: 'webdep',city: 'mandaluyong'})
+        let url: string = 'https://reqres.in/api/users';
+        let data: PROFOBJ;
+        data = { name: 'kurama', job: 'NA', city: 'mandaluyong'}
+        return this.http.post(url, data)
         .map((res:Response) => res.json())
         .catch(this.errorHandler) ;
     }
@@ -24,3 +32,4 @@ export class ProfileService {
 }
 
 
+                                                            
