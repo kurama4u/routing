@@ -1,0 +1,22 @@
+.pos {
+    position: relative;
+}
+.img {
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+    right: 0; 
+    top: 0;
+    max-width: 400px;
+    max-height: 400px;
+    
+}
+.c {
+    color: red;
+}
+.n {
+    font-size: 18px; color: blue;
+}
+.x {
+    color: green;
+}

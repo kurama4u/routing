@@ -1,9 +1,9 @@
 
 <h1>
-  Weather and Country App
+  Routing,Get and Post App
 </h1>
 <hr>
-<div style="position: relative">
+<div class="pos">
   <input type="text" placeholder="search city" [(ngModel)]=cityName>
 <button (click)=searchCity()>Search</button>
 
@@ -12,22 +12,27 @@
 
 <router-outlet></router-outlet>
 
-<h3>Pressure: {{ cityPressure }}</h3>
-<h3>Humidity: {{ cityHumid }}</h3>
+<h3>Pressure: <span class="c"> {{ cityPressure }}</span></h3>
+<h3>Humidity: <span class="c">{{ cityHumid }}</span></h3>
 <br>
-<h3>Name: {{ countryObj?.name }}</h3>
-<h3>Capital: {{ countryObj?.capital }}</h3>
-<h3>Currency: 
+<h3>Name: <span class="x">{{ countryObj?.name }}</span></h3>
+<h3>Capital: <span class="x"> {{ countryObj?.capital }}</span></h3>
+<h3>Currency: <span class="x">
   <span *ngIf="countryObj">
   {{ countryObj?.currencies[0].code }} - {{ countryObj?.currencies[0].symbol }}
-  </span>
+  </span></span>
   </h3>
 <input ngui-auto-complete type="text" placeholder="country name" [(ngModel)]="countryName">
 <select [(ngModel)]="countryName">
 <option *ngFor="let country of countriesList" value="{{country.name}}">{{country.name}}</option>
 </select>
 <button (click)="getCountryInfo()">Get Country</button>
-<img src="{{countryObj?.flag}}" width="400" height="300" 
-style="position: absolute; right: 0; top: 0">
-
+<img src="{{countryObj?.flag}}" class="img">
 </div>
+<hr />
+<h2>POST Response Data</h2>
+<h3>Name: <span class="n">{{profObj.name}}</span></h3>
+<h3>Job: <span class="n">{{profObj.job}}</span></h3>
+<h3>City: <span class="n">{{profObj.city}}</span></h3>
+<h3>Id: <span class="n">{{profObj.id}}</span></h3>
+<button (click)="anyFunct()">Generate Response</button>

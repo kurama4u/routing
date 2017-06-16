@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { CountriesService } from './countries.http.service';
+import { ProfileService } from './profile.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +9,7 @@ import { CountriesService } from './countries.http.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private http: Http, private countriesService: CountriesService){}
+  constructor(private http: Http, private countriesService: CountriesService, private profile: ProfileService ){}
 
   public countryName: string;
   public countryObj: any;
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
   public cityPressure: string;
   public cityHumid: string;
   public countriesList: any;
+  public profObj: any = {name:'', job:'', city:'', id:''};
 
   searchCity(){
     this.http.get('http://api.openweathermap.org/data/2.5/weather?APPID=0ba5e82df49a15a79cec569618c56215&q=' + this.cityName)
@@ -45,6 +47,9 @@ export class AppComponent implements OnInit {
     .subscribe(res => {
       this.countriesList = res.json()})
     }
+  anyFunct(): void {
+      this.profile.saveProf().subscribe(res => this.profObj=res);
+  }
 }  
          
 

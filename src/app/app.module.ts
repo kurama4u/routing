@@ -9,6 +9,7 @@ import { MemberComponent } from './member/member.component';
 import { RouterModule, Routes } from '@angular/router'
 import { CountriesService } from './countries.http.service';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+import { ProfileService } from './profile.service';
 
 const forRout = [
       {path: 'admin', component: AdminComponent},
@@ -28,7 +29,7 @@ const forRout = [
     Ng2AutoCompleteModule,
     RouterModule.forRoot(forRout)
   ],
-  providers: [CountriesService],
+  providers: [CountriesService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
