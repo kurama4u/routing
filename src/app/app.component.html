@@ -22,7 +22,10 @@
   {{ countryObj?.currencies[0].code }} - {{ countryObj?.currencies[0].symbol }}
   </span>
   </h3>
-<input type="text" placeholder="country name" [(ngModel)]="countryName">
+<input ngui-auto-complete type="text" placeholder="country name" [(ngModel)]="countryName">
+<select [(ngModel)]="countryName">
+<option *ngFor="let country of countriesList" value="{{country.name}}">{{country.name}}</option>
+</select>
 <button (click)="getCountryInfo()">Get Country</button>
 <img src="{{countryObj?.flag}}" width="400" height="300" 
 style="position: absolute; right: 0; top: 0">

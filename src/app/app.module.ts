@@ -8,6 +8,12 @@ import { AdminComponent } from './admin/admin.component';
 import { MemberComponent } from './member/member.component';
 import { RouterModule, Routes } from '@angular/router'
 import { CountriesService } from './countries.http.service';
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+
+const forRout = [
+      {path: 'admin', component: AdminComponent},
+      {path: 'member', component: MemberComponent},
+    ]
 
 @NgModule({
   declarations: [
@@ -19,10 +25,8 @@ import { CountriesService } from './countries.http.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      {path: 'admin', component: AdminComponent},
-      {path: 'member', component: MemberComponent},
-    ])
+    Ng2AutoCompleteModule,
+    RouterModule.forRoot(forRout)
   ],
   providers: [CountriesService],
   bootstrap: [AppComponent]
